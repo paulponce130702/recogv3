@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Vehículo</title>
+    <!-- Agregar el enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace al archivo CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Vehículo</h1>
+        <form action="{{ url_for('create_vehiculo') }}" method="post">
+            <div class="form-group">
+                <label for="Plate">Plate:</label>
+                <input type="text" class="form-control" id="Plate" name="Plate" required>
+            </div>
+            <div class="form-group">
+                <label for="Nombre_del_Propietario">Nombre del Propietario:</label>
+                <input type="text" class="form-control" id="Nombre_del_Propietario" name="Nombre_del_Propietario" required>
+            </div>
+            <div class="form-group">
+                <label for="Numero_de_Serie">Número de Serie:</label>
+                <input type="text" class="form-control" id="Numero_de_Serie" name="Numero_de_Serie" required>
+            </div>
+            <div class="form-group">
+                <label for="Numero_de_Motor">Número de Motor:</label>
+                <input type="text" class="form-control" id="Numero_de_Motor" name="Numero_de_Motor" required>
+            </div>
+            <div class="form-group">
+                <label for="Color">Color:</label>
+                <input type="text" class="form-control" id="Color" name="Color" required>
+            </div>
+            <div class="form-group">
+                <label for="Marca">Marca:</label>
+                <input type="text" class="form-control" id="Marca" name="Marca" required>
+            </div>
+            <div class="form-group">
+                <label for="Modelo">Modelo:</label>
+                <input type="text" class="form-control" id="Modelo" name="Modelo" required>
+            </div>
+            <div class="form-group">
+                <label for="Estado">Estado:</label>
+                <input type="text" class="form-control" id="Estado" name="Estado" required>
+            </div>
+            <div class="form-group">
+                <label for="Sede">Sede:</label>
+                <input type="text" class="form-control" id="Sede" name="Sede" required>
+            </div>
+            <div class="form-group">
+                <label for="Tiempo_init">Tiempo init:</label>
+                <input type="text" class="form-control" id="Tiempo_init" name="Tiempo_init" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+    </div>
+    <!-- Agregar el enlace al archivo JavaScript de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

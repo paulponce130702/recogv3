@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos</title>
+    <!-- Agregar el vínculo al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Tu archivo de estilo personalizado -->
+</head>
+<body>
+    <div class="container">
+        <h1>Vehículos</h1>
+        <a href="{{ url_for('create_vehiculo') }}" class="btn btn-primary mb-3">Crear Nuevo Vehículo</a> <!-- Botón para crear nuevo vehículo -->
+
+        <!-- Botón para Detectar -->
+        <form action="{{ url_for('detectar_vehiculos') }}" method="post">
+            <button type="submit" class="btn btn-success mb-3">Detectar Vehículos</button>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Plate</th>
+                    <th>Propietario</th>
+                    <th>Número de Serie</th>
+                    <th>Número de Motor</th>
+                    <th>Color</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Estado</th>
+                    <th>Sede</th>
+                    <th>Tiempo Init</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehiculo in vehiculos %}
+                <tr>
+                    <td>{{ vehiculo.id }}</td>
+                    <td>{{ vehiculo.plate }}</td>
+                    <td>{{ vehiculo.nombre_del_propietario }}</td>
+                    <td>{{ vehiculo.numero_de_serie }}</td>
+                    <td>{{ vehiculo.numero_de_motor }}</td>
+                    <td>{{ vehiculo.color }}</td>
+                    <td>{{ vehiculo.marca }}</td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.estado }}</td>
+                    <td>{{ vehiculo.sede }}</td>
+                    <td>{{ vehiculo.tiempo_init }}</td>
+                    <td>
+                        <a href="{{ url_for('update_vehiculo', id=vehiculo.id) }}" class="btn btn-info btn-sm">Editar</a> <!-- Botón Editar -->
+                        <form action="{{ url_for('delete_vehiculo', id=vehiculo.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button> <!-- Botón Eliminar -->
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Agregar el vínculo al archivo JavaScript de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
